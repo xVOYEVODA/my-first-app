@@ -216,3 +216,61 @@ a:hover {
 .footer a:hover {
   text-decoration: underline;
 }
+
+/* Rotating text styles */
+.ui-word-replace {
+  --accent: oklch(0.7 0.35 260);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  column-gap: 0.5ch;
+  letter-spacing: -0.03em;
+  line-height: 1.0625;
+  margin-block-end: 1ch;
+}
+
+.ui-word-replace div {
+  clip-path: inset(2px 0 0 0);
+  height: calc(1em + 2px);
+  overflow: hidden;
+}
+
+.ui-word-replace span {
+  background: linear-gradient(90deg, var(--accent), transparent);
+  background-repeat: repeat-x;
+  background-size: 150% 10%;
+  background-position: 0 90%;
+}
+
+.ui-word-replace ul {
+  all: unset;
+  color: var(--accent);
+  display: grid;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.ui-word-replace li {
+  animation: spin 21s linear infinite;
+  grid-area: 1 / 1;
+  list-style: none;
+  overflow: hidden;
+}
+
+/* Keyframes for animation */
+@keyframes spin {
+  0%, 100% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+  12.5%, 25% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  87.5% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+}
