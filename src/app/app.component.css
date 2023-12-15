@@ -129,6 +129,7 @@ body {
 .service-card:hover {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 6px 8px rgba(174,0,255,1), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    
 }
 
   .service-card h3 {
@@ -147,6 +148,7 @@ body {
   .portfolio {
     padding: 50px 0;
     background-color: #f1f1f1;
+
   }
   
   .portfolio-list {
@@ -190,5 +192,135 @@ body {
     line-height: 1.5em;
     margin-bottom: 20px;
   }
+  
+  .contact .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .contact .btn:hover {
+    background-color: #007bff;
+    box-shadow: #ae00ff 0 0 5px;
+  }
+  
+  /* Footer styles */
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .ui-word-replace {
+    --accent: oklch(0.7 0.35 260);
+    container-type: inline-size;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 14cqi;
+    font-weight: 900;
+    column-gap: 0.5ch;
+    letter-spacing: -0.03em;
+    line-height: 1.0625;
+    margin-block-end: 1ch;
+    & div {
+      clip-path: inset(2px 0 0 0);
+      height: calc(1lh + 2px);
+      overflow: hidden;
+    }
+    & span {
+      background: linear-gradient(90deg, var(--accent), transparent) repeat-x 0%
+        90% / 150% 10%;
+    }
+    & ul {
+      all: unset;
+      color: var(--accent);
+      display: grid;
+      & li {
+        animation: var(
+          --anim,
+          spin calc(var(--_speed, 3s) * var(--_length, 7))
+            calc(var(--_speed, 3s) * var(--_index, 0))
+            cubic-bezier(0.075, 0.82, 0.165, 1) infinite
+        );
+        grid-area: 1 / 1;
+        list-style: none;
+        overflow: hidden;
+      }
+    }
+    &.--spin-down li {
+      --_translate: 0 1lh;
+      translate: 0 -1lh;
+    }
+    &.--spin-left li {
+      --_translate: -100% 0;
+      translate: 100% 0;
+    }
+    &.--spin-right li {
+      --_translate: 100% 0;
+      translate: -100% 0;
+    }
+    &.--spin-up li {
+      --_translate: 0 -1lh;
+      translate: 0 1lh;
+    }
+    &.--step li {
+      animation: step-word calc(var(--_speed, 2s) * var(--_length, 7))
+        steps(var(--_length, 7), jump-none) infinite;
+      grid-area: initial;
+    }
+  }
+  
+  @keyframes spin {
+    12.5% {
+      opacity: 1;
+      translate: 0;
+    }
+    25% {
+      opacity: 0;
+      translate: var(--_translate, 0 0);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes step-word {
+    to {
+      translate: 0 calc((-1lh * var(--_length, 7)) + 1lh);
+    }
+  }
+  
+  @media (min-width: 450px) {
+    .ui-word-replace {
+      font-size: 8cqi;
+    }
+  }
+  body {
+    background-color: Canvas;
+    color: CanvasText;
+    color-scheme: dark;
+    padding: 1ch 2ch;
+  }
+  
+
+
   
   
