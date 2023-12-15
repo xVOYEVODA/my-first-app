@@ -1,8 +1,13 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* General styles */
 body {
   font-family: Lato, sans-serif;
-  margin: 0;
-  padding: 0;
   color: #000000;
 }
 
@@ -161,6 +166,7 @@ a:hover {
 .about p {
   font-size: 16px;
   line-height: 1.5em;
+  margin-bottom: 20px;
 }
 
 /* Contact section styles */
@@ -220,15 +226,16 @@ a:hover {
 /* Rotating text styles */
 .ui-word-replace {
   --accent: oklch(0.7 0.35 260);
-  display: flex; 
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-weight: 900;
-  column-gap: 0.5ch;
-  letter-spacing: -0.03em;
   line-height: 1.0625;
   margin-block-end: 1ch;
+  position: relative;
+  height: 1em; /* Height of one line of text */
+  overflow: hidden;
 }
 
 .ui-word-replace div {
@@ -242,36 +249,49 @@ a:hover {
   background-repeat: repeat-x;
   background-size: 150% 10%;
   background-position: 0 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .ui-word-replace ul {
-  all: unset;
-  color: var(--accent);
-  display: grid;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .ui-word-replace li {
-  animation: spin 21s linear infinite;
-  grid-area: 1 / 1;
-  list-style: none;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  animation: spin 10s linear infinite;
 }
+
+/* Assign different animation delays to each item */
+.ui-word-replace li:nth-child(1) { animation-delay: 0s; }
+.ui-word-replace li:nth-child(2) { animation-delay: 1.25s; }
+.ui-word-replace li:nth-child(3) { animation-delay: 2.5s; }
+/* ... continue for each list item ... */
 
 /* Keyframes for animation */
 @keyframes spin {
   0%, 100% {
       opacity: 0;
-      transform: translateY(-100%);
+      transform: translateY(100%);
   }
-  12.5%, 25% {
+  5%, 15% {
       opacity: 1;
       transform: translateY(0);
   }
-  87.5% {
+  85%, 95% {
       opacity: 0;
-      transform: translateY(100%);
+      transform: translateY(0);
   }
 }
